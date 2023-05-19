@@ -14,19 +14,27 @@
     </head>
 
     <body>
-        <h1>Hello MetaMask!</h1>
+        <h2>Fund Me App</h2>
         <!-- Connects to MetaMask -->
         <button id="connectButton">Connect</button>
 
         <!-- form -->
         <!-- to fund and enter ethAmount -->
-        <div><button id="fundButton">Fund</button></div>
-        <label for="fund">ETH Amount</label>
-        <input id="ethAmount" type="text" placeholder="0.1" />
+        <div>
+            <label for="fund">ETH Amount</label>
+            <input id="ethAmount" type="text" placeholder="0.1" />
+
+            <button id="fundButton">Fund</button>
+        </div>
 
         <!-- getBalance of the contract -->
         <div>
             <button id="balanceButton">getBalance</button>
+        </div>
+
+        <!-- withdraw the contract amount to deployer address -->
+        <div>
+            <button id="withdrawButton">Withdraw</button>
         </div>
 
         <script src="./index.js" type="module" defer></script>
