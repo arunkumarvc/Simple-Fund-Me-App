@@ -5,17 +5,28 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Fund Me App</title>
+        <style>
+            * {
+                margin: 2px auto;
+                padding: 4px;
+            }
+        </style>
     </head>
 
     <body>
         <h1>Hello MetaMask!</h1>
+        <!-- Connects to MetaMask -->
         <button id="connectButton">Connect</button>
-        <button id="fundButton">Fund</button>
 
         <!-- form -->
+        <!-- to fund and enter ethAmount -->
+        <div><button id="fundButton">Fund</button></div>
+        <label for="fund">ETH Amount</label>
+        <input id="ethAmount" type="text" placeholder="0.1" />
+
+        <!-- getBalance of the contract -->
         <div>
-            <label for="fund">ETH Amount</label>
-            <input id="ethAmount" type="text" placeholder="0.1" />
+            <button id="balanceButton">getBalance</button>
         </div>
 
         <script src="./index.js" type="module" defer></script>

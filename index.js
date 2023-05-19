@@ -3,8 +3,10 @@ import { abi, contractAddress } from "./constants.js";
 
 const connectButton = document.getElementById("connectButton");
 const fundButton = document.getElementById("fundButton");
+const balanceButton = document.getElementById("balanceButton");
 connectButton.onclick = connect;
 fundButton.onclick = fund;
+balanceButton.onclick = getBalance;
 
 // console.log(ethers);
 
@@ -29,6 +31,15 @@ async function connect() {
     }
 }
 
+// shows the balance of the deployed contract
+async function getBalance() {
+    if (typeof window.ethereum !== "undefined") {
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
+        const balance = await provider.getBalance(contractAddress);
+        console.log(ethers.utils.formatEther(balance));
+    }
+}
+
 async function fund() {
     const ethAmount = document.getElementById("ethAmount").value;
     console.log(`Funding with ${ethAmount}`);
@@ -45,10 +56,7 @@ async function fund() {
         //  Web3Provider is really similar to that JSON RPC provider, which we use before, which is where we put in exactly that endpoint, our alchemy endpoint, or when we're working with Metamask, whatever endpoint that we have in our network section
         //  Web3Provider takes that HTTP endpoint and automatically sticks it in ethers for us.
         // So this line of code basically looks at our Metamask and goes to the HTTP endpoint inside the Metamask. That's going to be what we're going to use as our provider here.
-        const provider = new ethers.providers.Web3Provider(
-            window.ethereum,
-            "any"
-        );
+        const provider = new ethers.providers.Web3Provider(window.ethereum);
 
         // returns whichever wallet connected to provider
         const signer = provider.getSigner();
