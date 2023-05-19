@@ -30,7 +30,8 @@ async function connect() {
 }
 
 async function fund() {
-    const ethAmount = "7";
+    const ethAmount = "10";
+    console.log(`Funding with ${ethAmount}`);
     if (typeof window.ethereum !== "undefined") {
         /*
         To send a transactions, we need 
@@ -58,8 +59,32 @@ async function fund() {
             const transactionResponse = await contract.fund({
                 value: ethers.utils.parseEther(ethAmount),
             });
+            // Listening for events and Completed Transactions
+            // listen for the tx to be mined
+            // listen for an event
+
+            // after we create the transaction, we tell JS to wait for this thing to finish
+            await listenForTransactionMine(transactionResponse, provider);
+            console.log("Done!");
         } catch (error) {
             console.log(error.message);
+        }
+        // listen for the tx to be mined
+        function listenForTransactionMine(transactionResponse, provider) {
+            console.log(`Mining ${transactionResponse.hash}...`);
+            return new Promise((resolve, reject) => {
+                //listens to the event once
+                //  once the transaction hash is found, then we call that arrow function, the promise only returns only when resolve or reject functions are called. here once we found the transactionReceipt we call the resolve()
+                provider.once(
+                    transactionResponse.hash,
+                    (transactionReceipt) => {
+                        console.log(
+                            `Completed with ${transactionReceipt.confirmations} confirmations`
+                        );
+                        resolve();
+                    }
+                );
+            });
         }
     }
 }
