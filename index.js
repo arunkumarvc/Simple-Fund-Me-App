@@ -30,7 +30,7 @@ async function connect() {
 }
 
 async function fund() {
-    const ethAmount = "10";
+    const ethAmount = document.getElementById("ethAmount").value;
     console.log(`Funding with ${ethAmount}`);
     if (typeof window.ethereum !== "undefined") {
         /*
