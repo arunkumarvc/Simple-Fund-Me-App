@@ -1,17 +1,43 @@
 # Simple-Fund-Me-App
 
--   In this simple project, you can fund and withdraw amount from MetaMask.
--   Created using JavaScript, HTML and ethers.js
+## A contract for crowd funding.
 
-## Steps to use this app
+### Features
 
--   clone or fork [this repo](ttps://github.com/arunkumarvc/hardhat-fund-me-fcc)
--   Run a localhost network, by running
+- Contributors can send Ether to the contract to fund a project.
+- The project owner can withdraw the funds once the funding goal is reached.
+- Contributors can view their total contribution and the total amount raised.
 
-```zsh
-yarn hardhat node
-```
+### How to use
 
--   copy one private Key from localhost and import it to MetaMask
--   Open HTML file from this repo in browser
--   That's it! You can fund, check contract balance and withdraw the amount
+- Deploy the contract to any blockchain network.
+- Send Ether to the contract to fund a project.
+- The project owner can withdraw the funds once the funding goal is reached.
+- Contributors can view their total contribution and the total amount raised by calling the getAddressToAmountFunded and getTotalFunded functions.
+ 
+### Requirements
+
+- MetaMask
+- Node.js
+- npm or yarn
+
+### Installation
+
+- Clone the repository.
+- Clone [this repository](https://github.com/arunkumarvc/hardhat-fund-me-fcc) for backend.
+
+### Usage
+
+- Open MetaMask.
+- Connect to any blockchain network.
+- In the browser, open http://localhost:3000.
+- Click the "Connect" button.
+- Enter the amount of Ether you want to fund the project.
+- Click the "Fund" button.
+- The project owner can withdraw the funds once the funding goal is reached.
+- Contributors can view their total contribution and the total amount raised by clicking the "Balance" button.
+
+### License
+
+- This project is licensed under the MIT License.
+- This frontend is a simple example of how to interact with the FundMe contract.
